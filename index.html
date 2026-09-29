@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Shreeraj Pawar — Mechanical Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #17191C;
+    --paper: #E9E4D6;
+    --paper-2: #F4F1E7;
+    --line: #C7C0AA;
+    --steel: #565C62;
+    --steel-2: #7C828A;
+    --brass: #A05E28;
+    --brass-2: #C98A4C;
+    --accent-line: #16181A;
+    --radius: 3px;
+    --font-head: 'Space Grotesk', 'Segoe UI', system-ui, sans-serif;
+    --font-body: 'IBM Plex Sans', 'Segoe UI', system-ui, sans-serif;
+    --font-mono: 'IBM Plex Mono', 'SFMono-Regular', Consolas, monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ink: #ECE7DA;
+      --paper: #17191C;
+      --paper-2: #1E2124;
+      --line: #34383D;
+      --steel: #9AA0A6;
+      --steel-2: #6B7178;
+      --brass: #D9974F;
+      --brass-2: #C98A4C;
+      --accent-line: #ECE7DA;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ink: #ECE7DA;
+    --paper: #17191C;
+    --paper-2: #1E2124;
+    --line: #34383D;
+    --steel: #9AA0A6;
+    --steel-2: #6B7178;
+    --brass: #D9974F;
+    --brass-2: #C98A4C;
+    --accent-line: #ECE7DA;
+  }
+
+  * { box-sizing: border-box; }
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(64px + env(safe-area-inset-top, 0px));
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+  }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 34px 34px;
+    background-position: -1px -1px;
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.55;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: inherit; }
+  h1, h2, h3 { font-family: var(--font-head); margin: 0; letter-spacing: -0.01em; }
+
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+  /* ---------- NAV ---------- */
+  header.nav {
+    position: sticky;
+    top: 0;
+    top: env(safe-area-inset-top, 0px);
+    z-index: 50;
+    background: color-mix(in srgb, var(--paper) 88%, transparent);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 14px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .nav-name {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    color: var(--steel);
+    white-space: nowrap;
+  }
+  .nav-name b { color: var(--ink); font-weight: 500; }
+  .nav-links {
+    display: flex;
+    gap: 22px;
+    font-family: var(--font-mono);
+    font-size: 13px;
+  }
+  .nav-links a { text-decoration: none; color: var(--steel); border-bottom: 1px solid transparent; padding-bottom: 2px; }
+  .nav-links a:hover, .nav-links a:focus-visible { color: var(--ink); border-bottom-color: var(--brass); }
+  .nav-right { display: flex; align-items: center; gap: 14px; }
+  .coord {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--steel-2);
+    min-width: 108px;
+  }
+  @media (pointer: coarse) { .coord { display: none; } }
+  @media (max-width: 640px) { .nav-links { display: none; } }
+
+  .theme-toggle {
+    width: 40px; height: 22px;
+    border-radius: 11px;
+    border: 1px solid var(--line);
+    background: var(--paper-2);
+    position: relative;
+    cursor: pointer;
+    padding: 0;
+  }
+  .theme-toggle::after {
+    content: "";
+    position: absolute;
+    top: 2px; left: 2px;
+    width: 16px; height: 16px;
+    border-radius: 50%;
+    background: var(--brass);
+    transition: transform .2s ease;
+  }
+  .theme-toggle[aria-pressed="true"]::after { transform: translateX(18px); }
+  .theme-toggle:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    padding: 72px 0 40px;
+  }
+  .hero-grid {
+    max-width: 760px;
+  }
+
+  .kicker {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    color: var(--brass);
+    margin-bottom: 14px;
+  }
+  h1.headline {
+    font-size: clamp(34px, 4.6vw, 54px);
+    line-height: 1.08;
+    font-weight: 600;
+  }
+  .lede {
+    margin-top: 20px;
+    max-width: 46ch;
+    color: var(--steel);
+    font-size: 17px;
+  }
+  .hero-ctas { margin-top: 30px; display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    padding: 11px 18px;
+    border-radius: var(--radius);
+    text-decoration: none;
+    display: inline-block;
+    border: 1px solid var(--accent-line);
+  }
+  .btn-solid { background: var(--accent-line); color: var(--paper); }
+  .btn-outline { background: transparent; color: var(--ink); }
+  .btn-solid:hover { background: var(--brass); border-color: var(--brass); }
+  .btn-outline:hover { border-color: var(--brass); color: var(--brass); }
+
+  section { padding: 56px 0; }
+
+  /* ---------- Projects ---------- */
+  h2.section-title {
+    font-size: clamp(24px, 3vw, 32px);
+    font-weight: 600;
+  }
+  .section-sub { color: var(--steel); margin-top: 8px; max-width: 56ch; }
+
+  .project-list { margin-top: 34px; border-top: 1px solid var(--line); }
+  .project-item { border-bottom: 1px solid var(--line); }
+  .project-head {
+    width: 100%;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    align-items: center;
+    gap: 18px;
+    padding: 20px 0;
+    text-align: left;
+    font-family: inherit;
+    color: inherit;
+  }
+  .fig-tag {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--steel-2);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 3px 7px;
+  }
+  .project-title { font-family: var(--font-head); font-size: 19px; font-weight: 600; }
+  .project-stat {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--brass);
+    text-align: right;
+    white-space: nowrap;
+  }
+  .chevron {
+    width: 18px; height: 18px;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 12px;
+    color: var(--steel);
+    transition: transform .25s ease;
+    flex-shrink: 0;
+  }
+  .project-item.open .chevron { transform: rotate(45deg); border-color: var(--brass); color: var(--brass); }
+
+  .content-wrap { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .3s ease; }
+  .project-item.open .content-wrap { grid-template-rows: 1fr; }
+  .content-inner { overflow: hidden; }
+  .content-body {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    padding: 4px 0 28px;
+  }
+  @media (max-width: 700px) { .content-body { grid-template-columns: 1fr; } }
+
+  .content-col-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--steel-2);
+    letter-spacing: 0.04em;
+    margin-bottom: 6px;
+  }
+  .content-col p { margin: 0; color: var(--ink); font-size: 14.5px; }
+
+  /* ---------- Experience ---------- */
+  .exp-list { margin-top: 34px; border-top: 1px solid var(--line); }
+  .exp-item { border-bottom: 1px solid var(--line); }
+  .exp-head {
+    width: 100%;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    align-items: center;
+    gap: 18px;
+    padding: 20px 0;
+    text-align: left;
+    font-family: inherit;
+    color: inherit;
+  }
+  .exp-title-wrap { display: flex; flex-direction: column; gap: 4px; }
+  .exp-title { font-family: var(--font-head); font-size: 18px; font-weight: 600; }
+  .exp-org {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--steel);
+  }
+  .exp-dates {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--steel-2);
+    white-space: nowrap;
+  }
+  .exp-item .content-wrap { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .3s ease; }
+  .exp-item.open .content-wrap { grid-template-rows: 1fr; }
+  .exp-item.open .chevron { transform: rotate(45deg); border-color: var(--brass); color: var(--brass); }
+  .exp-body { padding: 0 0 26px; }
+  .exp-body ul { margin: 0; padding-left: 18px; color: var(--steel); font-size: 14.5px; }
+  .exp-body li { margin-bottom: 8px; }
+  .exp-body li::marker { color: var(--brass); }
+  .exp-pub {
+    display: inline-block;
+    margin-top: 4px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--brass);
+    text-decoration: none;
+    border-bottom: 1px dashed var(--brass);
+    padding-bottom: 1px;
+  }
+  .exp-pub:hover { color: var(--brass-2); }
+  .exp-head:hover .exp-title,
+  .exp-head:focus-visible .exp-title { color: var(--brass); }
+  .exp-head:hover .chevron,
+  .exp-head:focus-visible .chevron { border-color: var(--brass); color: var(--brass); transform: translateX(2px); }
+
+  /* ---------- Experience detail page ---------- */
+  .exp-detail-page { padding: 56px 0 70px; }
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--steel);
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-bottom: 36px;
+  }
+  .back-link:hover { color: var(--brass); }
+  .ed-fig {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--brass);
+    letter-spacing: 0.04em;
+  }
+  h1.ed-headline {
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 600;
+    margin-top: 10px;
+  }
+  .ed-meta {
+    margin-top: 10px;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--steel);
+  }
+  .exp-detail-body {
+    margin-top: 36px;
+    max-width: 68ch;
+    border-top: 1px solid var(--line);
+    padding-top: 30px;
+  }
+  .exp-detail-body ul { margin: 0; padding-left: 18px; color: var(--steel); font-size: 15px; }
+  .exp-detail-body li { margin-bottom: 14px; }
+  .exp-detail-body li::marker { color: var(--brass); }
+  .exp-detail-body .exp-pub { margin-top: 20px; font-size: 13px; }
+  .ed-subhead {
+    margin-top: 54px;
+    padding-top: 30px;
+    border-top: 1px solid var(--line);
+  }
+  .ed-subhead h2 {
+    font-size: clamp(22px, 2.6vw, 28px);
+    font-weight: 600;
+  }
+  .ed-subhead p {
+    margin-top: 8px;
+    color: var(--steel);
+    max-width: 56ch;
+  }
+
+  /* ---------- About / title block ---------- */
+  .titleblock {
+    margin-top: 30px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .tb-row { display: grid; grid-template-columns: 160px 1fr; border-bottom: 1px solid var(--line); }
+  .tb-row:last-child { border-bottom: none; }
+  .tb-key {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--steel-2);
+    letter-spacing: 0.04em;
+    padding: 12px 14px;
+    border-right: 1px solid var(--line);
+    background: var(--paper-2);
+  }
+  .tb-val { padding: 12px 14px; font-size: 14.5px; }
+  @media (max-width: 560px) { .tb-row { grid-template-columns: 120px 1fr; } }
+
+  .skills-grid {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  @media (max-width: 700px) { .skills-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 460px) { .skills-grid { grid-template-columns: 1fr; } }
+  .skill-cell { background: var(--paper-2); padding: 16px; font-size: 14px; }
+  .skill-cell b { display: block; font-family: var(--font-head); font-size: 15px; margin-bottom: 4px; font-weight: 600; }
+
+  /* ---------- Contact ---------- */
+  .contact-grid { margin-top: 26px; display: flex; flex-wrap: wrap; gap: 14px; }
+  .contact-card {
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    flex: 1 1 200px;
+    text-decoration: none;
+    color: inherit;
+  }
+  .contact-card:hover { border-color: var(--brass); }
+  .contact-label { font-family: var(--font-mono); font-size: 11px; color: var(--steel-2); }
+  .contact-value { font-family: var(--font-head); font-size: 16px; margin-top: 4px; font-weight: 600; }
+
+  .note {
+    margin-top: 22px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--steel-2);
+    border-left: 2px solid var(--brass);
+    padding-left: 10px;
+  }
+
+  footer {
+    padding: 30px 0 50px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--steel-2);
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+</style>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%278%27 fill=%27%231c2930%27/%3E%3Ctext x=%2732%27 y=%2744%27 text-anchor=%27middle%27 font-family=%27Arial%27 font-size=%2732%27 fill=%27%23c9a66a%27%3ESP%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="nav-name">SHREERAJ PAWAR <b>/ MECHANICAL ENGINEER</b></div>
+    <nav class="nav-links">
+      <a href="#experience">Experience</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-right">
+      <span class="coord" id="coord">X:0000 Y:0000</span>
+      <button class="theme-toggle" id="themeToggle" aria-pressed="false" aria-label="Toggle dark mode"></button>
+    </div>
+  </div>
+</header>
+
+<main>
+<div id="mainContent">
+  <section class="hero" id="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <div class="kicker">MECHANICAL ENGINEER — TUSCALOOSA, AL</div>
+          <h1 class="headline">I design the mechanisms other systems depend on.</h1>
+          <p class="lede">B.S. Mechanical Engineering, University of Alabama (4.00 GPA). Nine months at The Boring Company designing gripper and navigation systems for tunnel boring machines — the parts that have to work under full load, every cycle.</p>
+          <div class="hero-ctas">
+            <a class="btn btn-solid" href="#exp-tbc">View the work</a>
+            <a class="btn btn-outline" href="#contact">Get in touch</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap">
+      <h2 class="section-title">Experience</h2>
+      <p class="section-sub">Full work and research history. Click any role to open its page.</p>
+
+      <div class="exp-list" id="expList">
+
+        <div class="exp-item">
+          <button class="exp-head" data-slug="exp-tbc">
+            <span class="exp-title-wrap">
+              <span class="exp-title">Mechanical Engineering Intern</span>
+              <span class="exp-org">The Boring Company — Bastrop, TX</span>
+            </span>
+            <span class="exp-dates">Aug 2025 – May 2026</span>
+            <span class="chevron">›</span>
+          </button>
+        </div>
+
+        <div class="exp-item">
+          <button class="exp-head" data-slug="exp-senior-design">
+            <span class="exp-title-wrap">
+              <span class="exp-title">Design and Fabrication Lead</span>
+              <span class="exp-org">Senior Design Team, University of Alabama — Tuscaloosa, AL</span>
+            </span>
+            <span class="exp-dates">Aug 2024 – May 2025</span>
+            <span class="chevron">›</span>
+          </button>
+        </div>
+
+        <div class="exp-item">
+          <button class="exp-head" data-slug="exp-iac">
+            <span class="exp-title-wrap">
+              <span class="exp-title">Undergraduate Research Assistant</span>
+              <span class="exp-org">Alabama Industrial Assessment Center — Tuscaloosa, AL</span>
+            </span>
+            <span class="exp-dates">Apr 2023 – May 2025</span>
+            <span class="chevron">›</span>
+          </button>
+        </div>
+
+        <div class="exp-item">
+          <button class="exp-head" data-slug="exp-safestate">
+            <span class="exp-title-wrap">
+              <span class="exp-title">Pollution Prevention Program Intern</span>
+              <span class="exp-org">UA SafeState — Tuscaloosa, AL</span>
+            </span>
+            <span class="exp-dates">May 2024 – Aug 2024</span>
+            <span class="chevron">›</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <template id="exp-tbc-data">
+    <span class="ed-title">Mechanical Engineering Intern</span>
+    <span class="ed-org">The Boring Company — Bastrop, TX</span>
+    <span class="ed-dates">Aug 2025 – May 2026</span>
+    <ul>
+      <li>Designed and released mechanical components and support structures for tunnel boring machine systems, including sensor mounts, operator platforms, protective shrouds, and structural hardware, using SolidWorks.</li>
+      <li>Designed a custom in-house gripper system for the TBM, performing hand calculations, FEA correlation, material selection, and design reviews to replace an outsourced solution.</li>
+      <li>Developed vibration-conscious mounting and routing solutions for navigation systems, sensors, cables, and hoses operating in harsh underground tunneling environments with tight packaging constraints.</li>
+      <li>Created and managed large top-level assemblies and detailed manufacturing drawings, generating CAD from existing field hardware to support integration, fabrication, and installation.</li>
+      <li>Collaborated closely with field and manufacturing teams to solve real-world issues involving manufacturability, structural performance, serviceability, and installation of heavy mechanical systems during active operation.</li>
+    </ul>
+    <div class="ed-subhead">
+      <h2>Selected work</h2>
+      <p>Seven mechanical systems from this internship. Most were constrained by tight packaging and clearance requirements driven by the tunnel's turning radius — every part had to fit and move within space the machine's geometry already claimed. Click any item for the full breakdown.</p>
+    </div>
+    <div class="project-list" id="projectList">
+
+      <div class="project-item open" id="proj-gripper">
+        <button class="project-head">
+          <span class="fig-tag">FIG. 01</span>
+          <span class="project-title">Gripper System</span>
+          <span class="project-stat">High-capacity clamping</span>
+          <span class="chevron">+</span>
+        </button>
+        <div class="content-wrap">
+          <div class="content-inner">
+            <div class="content-body">
+              <div class="content-col">
+                <div class="content-col-label">PROBLEM</div>
+                <p>The TBM needs a secure grip on the tunnel wall between thrust cycles. The gripper concept needed mechanical validation before fabrication could start.</p>
+              </div>
+              <div class="content-col">
+                <div class="content-col-label">APPROACH</div>
+                <p>Analyzed load paths through the structure, sized the clamping members for the required capacity, and coordinated fabrication tolerances with the manufacturing team.</p>
+              </div>
+              <div class="content-col">
+                <div class="content-col-label">RESULT</div>
+                <p>A validated gripper design, sized to hold the machine steady under full thrust load, ready to move into build.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-item" id="proj-navmount">
+        <button class="project-head">
+          <span class="fig-tag">FIG. 02</span>
+          <span class="project-title">Navigation Mount Redesign</span>
+          <span class="project-stat">Redesigned mid-operation</span>
+          <span class="chevron">+</span>
+        </button>
+        <div class="content-wrap">
+          <div class="content-inner">
+            <div class="content-body">
+              <div class="content-col">
+                <div class="content-col-label">PROBLEM</div>
+                <p>The navigation sensor mount needed a design change while the machine was actively mining — a fix that couldn't wait for a scheduled stop.</p>
+              </div>
+              <div class="content-col">
+                <div class="content-col-label">APPROACH</div>
+                <p>Redesigned the mount in place, working around existing tunnel geometry and machine clearances, and planned the swap for a routine cycle.</p>
+              </div>
+              <div class="content-col">
+                <div class="content-col-label">RESULT</div>
+                <p>Installed the redesigned mount without adding downtime to the boring schedule.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-item" id="proj-tow">
+        <button class="project-head">
+          <span class="fig-tag">FIG. 03</span>
+          <span class="project-title">Tow Structure Modifications</span>
+          <span class="project-stat">FEA-verified redesign</span>
+          <span class="chevron">+</span>
+        </button>
+        <div class="content-wrap">
+          <div class="content-inner">
+            <div class="content-body">
+              <div class="content-col">
+                <div class="content-col-label">PROBLEM</div>
+                <p>The TBM's tow structure needed design modifications to support updated loads and equipment, and the changes had to be re-verified before fabrication.</p>
+              </div>
+              <div class="content-col">
+                <div class="content-col-label">APPROACH</div>
+                <p>Performed FEA-based load calculations on the modified tow structure to confirm it could handle the required loads, then produced the updated manufacturing drawings.</p>
+              </div>
+              <div class="content-col">
+                <div class="content-col-label">RESULT</div>
+                <p>A revalidated tow structure design, cleared for fabrication.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-item" id="proj-grease">
+        <button class="project-head">
+          <span class="fig-tag">FIG. 04</span>
+          <span class="project-title">Grease Refill System</span>
+          <span class="project-stat">Electric winch mechanism</span>
+          <span class="chevron">+</span>
+        </button>
+        <div class="content-wrap">
+          <div class="content-inner">
+            <div class="content-body">
+              <div class="content-col">
+                <div class="content-col-label">PROBLEM</div>
+                <p>The TBM's grease system needed a more efficient way to refill and distribute grease to lubrication points that were hard to reach during operation.</p>
+              </div>
+              <div class="content-col">
+                <div class="content-col-label">APPROACH</div>
+                <p>Designed an electric winch-and-pulley mechanism to handle the grease refill process, along with the supporting structure and manufacturing drawings.</p>
+              </div>
+              <div class="content-col">
+                <div class="content-col-label">RESULT</div>
+                <p>A working grease refill system design, ready to build and install.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-item" id="proj-mvcable">
+        <button class="project-head">
+          <span class="fig-tag">FIG. 05</span>
+          <span class="project-title">MV Cable Routing</span>
+          <span class="project-stat">Machine-wide routing</span>
+          <span class="chevron">+</span>
+        </button>
+        <div class="content-wrap">
+          <div class="content-inner">
+            <div class="content-body">
+              <div class="content-col">
+                <div class="content-col-label">PROBLEM</div>
+                <p>Medium-voltage cable needed a routing path across the entire machine that respected bend-radius limits while avoiding every other system on board.</p>
+              </div>
+              <div class="content-col">
+                <div class="content-col-label">APPROACH</div>
+                <p>Planned and detailed the MV cable routing provisions across the machine, working around bend-radius constraints and the space requirements of surrounding systems, and produced the supporting drawings and brackets.</p>
+              </div>
+              <div class="content-col">
+                <div class="content-col-label">RESULT</div>
+                <p>A complete routing path and set of provisions for the MV cable, cleared to install alongside the rest of the machine's systems.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-item" id="proj-beltwinch">
+        <button class="project-head">
+          <span class="fig-tag">FIG. 06</span>
+          <span class="project-title">Belt Alignment Winch System</span>
+          <span class="project-stat">Conveyor alignment</span>
+          <span class="chevron">+</span>
+        </button>
+        <div class="content-wrap">
+          <div class="content-inner">
+            <div class="content-body">
+              <div class="content-col">
+                <div class="content-col-label">PROBLEM</div>
+                <p>The conveyor belt needed a reliable way to stay aligned during operation.</p>
+              </div>
+              <div class="content-col">
+                <div class="content-col-label">APPROACH</div>
+                <p>Designed a winch-based belt alignment system and produced the manufacturing drawings for it.</p>
+              </div>
+              <div class="content-col">
+                <div class="content-col-label">RESULT</div>
+                <p>A belt alignment system design ready for fabrication.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-item" id="proj-gripperpressure">
+        <button class="project-head">
+          <span class="fig-tag">FIG. 07</span>
+          <span class="project-title">Gripper Cylinder Pressure Sensing</span>
+          <span class="project-stat">Instrumentation + utility box</span>
+          <span class="chevron">+</span>
+        </button>
+        <div class="content-wrap">
+          <div class="content-inner">
+            <div class="content-body">
+              <div class="content-col">
+                <div class="content-col-label">PROBLEM</div>
+                <p>The gripper cylinders needed pressure sensing instrumentation, and the supporting electronics needed a utility box to house them.</p>
+              </div>
+              <div class="content-col">
+                <div class="content-col-label">APPROACH</div>
+                <p>Designed the pressure sensing integration for the gripper cylinders along with a utility box to house the related hardware, and produced the manufacturing drawings.</p>
+              </div>
+              <div class="content-col">
+                <div class="content-col-label">RESULT</div>
+                <p>A complete pressure sensing and utility box design ready for fabrication.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </template>
+
+  <template id="exp-senior-design-data">
+    <span class="ed-title">Design and Fabrication Lead</span>
+    <span class="ed-org">Senior Design Team, University of Alabama — Tuscaloosa, AL</span>
+    <span class="ed-dates">Aug 2024 – May 2025</span>
+    <ul>
+      <li>Led a literature review as part of a five-person team on additively manufactured tensegrity-like structures, their design principles, and real-world applications.</li>
+      <li>Designed, 3D-printed, and tested tensegrity unit cells and lattices under quasistatic and dynamic compressive loading to study and optimize specific energy absorption through delocalization of forces.</li>
+    </ul>
+    <a class="exp-pub" href="https://www.researchgate.net/publication/399562407_Energy_absorption_and_shape_reformation_analysis_of_low_density_additively_manufactured_star-shaped_tensegrity_structures" target="_blank" rel="noopener">Publication — Energy absorption and shape reformation analysis of low-density additively manufactured star-shaped tensegrity structures</a>
+    <div class="ed-subhead">
+      <h2>Selected work</h2>
+      <p>Design, fabrication, and testing from this research project.</p>
+    </div>
+    <div class="project-list" id="projectListSD">
+
+      <div class="project-item open" id="proj-tensegrity-design">
+        <button class="project-head">
+          <span class="fig-tag">FIG. 01</span>
+          <span class="project-title">Star-Shaped Tensegrity Structure Design &amp; Testing</span>
+          <span class="project-stat">Published research</span>
+          <span class="chevron">+</span>
+        </button>
+        <div class="content-wrap">
+          <div class="content-inner">
+            <div class="content-body">
+              <div class="content-col">
+                <div class="content-col-label">PROBLEM</div>
+                <p>Existing tensegrity structure literature didn't cover this specific low-density, star-shaped unit cell well enough to predict how it would actually perform under load.</p>
+              </div>
+              <div class="content-col">
+                <div class="content-col-label">APPROACH</div>
+                <p>Reviewed the existing literature to select a promising unit cell geometry, modeled it in SolidWorks, 3D-printed physical samples, and tested them under quasistatic and dynamic compressive loading, calculating specific energy absorption for each configuration.</p>
+              </div>
+              <div class="content-col">
+                <div class="content-col-label">RESULT</div>
+                <p>Findings on the structure's energy absorption and shape reformation behavior were published in a peer-reviewed paper (link above).</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </template>
+
+  <template id="exp-iac-data">
+    <span class="ed-title">Undergraduate Research Assistant</span>
+    <span class="ed-org">Alabama Industrial Assessment Center — Tuscaloosa, AL</span>
+    <span class="ed-dates">Apr 2023 – May 2025</span>
+    <ul>
+      <li>Led a team of 4–6 students on industrial assessment visits, generating recommendations projected to save 2,000,000 kWh of energy and $220,000 in costs, and reduce CO₂ emissions by 1,316 tons annually.</li>
+      <li>Researched and wrote detailed reports on energy efficiency (ROI under 5 years), covering compressed air systems, boiler systems, motors, HVAC systems, and lighting systems.</li>
+      <li>Communicated regularly with clients, organized team meetings, wrote cumulative reports, and helped train new members.</li>
+    </ul>
+  </template>
+
+  <template id="exp-safestate-data">
+    <span class="ed-title">Pollution Prevention Program Intern</span>
+    <span class="ed-org">UA SafeState — Tuscaloosa, AL</span>
+    <span class="ed-dates">May 2024 – Aug 2024</span>
+    <ul>
+      <li>Conducted in-depth assessments of plant operations at three facilities across Alabama from a pollution control and prevention standpoint, identifying cost-saving measures.</li>
+      <li>Built biweekly presentations for a 10–12 person team comparing tools deployed in industry against alternatives, cutting assessment time by 5%.</li>
+      <li>Researched approaches that increased operational efficiency by 15%, improving use of raw materials, energy, water, and other resources while lowering costs.</li>
+    </ul>
+  </template>
+
+  <section id="about">
+    <div class="wrap">
+      <h2 class="section-title">About</h2>
+      <p class="section-sub">Background, credentials, and the tools this work runs on.</p>
+
+      <div class="titleblock">
+        <div class="tb-row"><div class="tb-key">NAME</div><div class="tb-val">Shreeraj Pawar</div></div>
+        <div class="tb-row"><div class="tb-key">DEGREE</div><div class="tb-val">B.S. Mechanical Engineering</div></div>
+        <div class="tb-row"><div class="tb-key">INSTITUTION</div><div class="tb-val">University of Alabama</div></div>
+        <div class="tb-row"><div class="tb-key">GPA</div><div class="tb-val">4.00 / 4.00</div></div>
+        <div class="tb-row"><div class="tb-key">MINORS</div><div class="tb-val">Manufacturing, Mathematics</div></div>
+        <div class="tb-row"><div class="tb-key">CERTIFICATION</div><div class="tb-val">Lean Six Sigma Green Belt</div></div>
+        <div class="tb-row"><div class="tb-key">LOCATION</div><div class="tb-val">Tuscaloosa, AL</div></div>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-cell"><b>CAD</b>SolidWorks, Fusion 360, AutoCAD, Onshape.</div>
+        <div class="skill-cell"><b>Simulation</b>SolidWorks Simulation — structural analysis.</div>
+        <div class="skill-cell"><b>Programming</b>C, C++, Python, MATLAB.</div>
+        <div class="skill-cell"><b>Fabrication</b>Waterjet and CNC methods, and designing parts that are actually easy to build.</div>
+        <div class="skill-cell"><b>DFM / DFA</b>Designing with manufacturing and assembly constraints in mind from the start.</div>
+        <div class="skill-cell"><b>Process improvement</b>Lean Six Sigma Green Belt — structured problem-solving under real constraints.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <h2 class="section-title">Contact</h2>
+      <p class="section-sub">Open to full-time mechanical engineering roles.</p>
+
+      <div class="contact-grid">
+        <a class="contact-card" href="mailto:scpawar@crimson.ua.edu">
+          <div class="contact-label">EMAIL</div>
+          <div class="contact-value">scpawar@crimson.ua.edu</div>
+        </a>
+        <a class="contact-card" href="https://www.linkedin.com/in/shreerajpawar1373/" target="_blank" rel="noopener">
+          <div class="contact-label">LINKEDIN</div>
+          <div class="contact-value">/in/shreerajpawar1373</div>
+        </a>
+        <a class="contact-card" href="PawarShreeraj_Resume.pdf" download="PawarShreeraj_Resume.pdf">
+          <div class="contact-label">RESUME</div>
+          <div class="contact-value">Download PDF</div>
+        </a>
+      </div>
+
+    </div>
+  </section>
+</div>
+
+  <footer>
+    <div class="wrap" style="display:flex; justify-content:flex-end; width:100%; flex-wrap:wrap; gap:12px;">
+      <span>© 2026 SHREERAJ PAWAR</span>
+    </div>
+  </footer>
+
+<div id="expDetailContainer" hidden></div>
+</main>
+
+<script>
+  // Theme toggle
+  const themeToggle = document.getElementById('themeToggle');
+  const root = document.documentElement;
+  themeToggle.addEventListener('click', () => {
+    const isDark = root.getAttribute('data-theme') === 'dark';
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    let next;
+    if (!root.hasAttribute('data-theme')) {
+      next = prefersDark ? 'light' : 'dark';
+    } else {
+      next = isDark ? 'light' : 'dark';
+    }
+    root.setAttribute('data-theme', next);
+    themeToggle.setAttribute('aria-pressed', String(next === 'dark'));
+  });
+
+  // Cursor coordinate readout
+  const hero = document.getElementById('hero');
+  const coord = document.getElementById('coord');
+  if (hero && coord && window.matchMedia('(pointer: fine)').matches) {
+    hero.addEventListener('mousemove', (e) => {
+      const r = hero.getBoundingClientRect();
+      const x = Math.round(e.clientX - r.left);
+      const y = Math.round(e.clientY - r.top);
+      coord.textContent = 'X:' + String(x).padStart(4, '0') + ' Y:' + String(y).padStart(4, '0');
+    });
+  }
+
+  // Project accordion (event delegation — cards are injected dynamically into the TBC page)
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.project-head');
+    if (!btn) return;
+    const item = btn.closest('.project-item');
+    const wasOpen = item.classList.contains('open');
+    item.closest('.project-list').querySelectorAll('.project-item').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) {
+      item.classList.add('open');
+      if (item.id) history.replaceState(null, '', '#' + item.id);
+    }
+  });
+
+  // Experience: build full detail "pages" from templates, navigate via hash
+  const expSlugs = ['exp-tbc', 'exp-senior-design', 'exp-iac', 'exp-safestate'];
+  const figNumbers = { 'exp-tbc': 'ROLE 01', 'exp-senior-design': 'ROLE 02', 'exp-iac': 'ROLE 03', 'exp-safestate': 'ROLE 04' };
+  const expDetailContainer = document.getElementById('expDetailContainer');
+  const mainContent = document.getElementById('mainContent');
+
+  expSlugs.forEach(slug => {
+    const tpl = document.getElementById(slug + '-data');
+    if (!tpl) return;
+    const frag = tpl.content;
+    const title = frag.querySelector('.ed-title').textContent;
+    const org = frag.querySelector('.ed-org').textContent;
+    const dates = frag.querySelector('.ed-dates').textContent;
+    const list = frag.querySelector('ul').outerHTML;
+    const pub = frag.querySelector('.exp-pub');
+    const pubHtml = pub ? pub.outerHTML : '';
+    const subhead = frag.querySelector('.ed-subhead');
+    const subheadHtml = subhead ? subhead.outerHTML : '';
+    const projectList = frag.querySelector('.project-list');
+    const projectListHtml = projectList ? projectList.outerHTML : '';
+
+    const page = document.createElement('div');
+    page.className = 'exp-detail-page';
+    page.id = slug;
+    page.hidden = true;
+    page.innerHTML = `
+      <div class="wrap">
+        <button class="back-link" data-back="1">&larr; Back to Experience</button>
+        <div class="ed-fig">${figNumbers[slug] || ''}</div>
+        <h1 class="ed-headline">${title}</h1>
+        <div class="ed-meta"><span>${org}</span><span>${dates}</span></div>
+        <div class="exp-detail-body">${list}${pubHtml}</div>
+        ${subheadHtml}
+        ${projectListHtml}
+      </div>`;
+    expDetailContainer.appendChild(page);
+  });
+
+  const projectSlugs = ['proj-gripper', 'proj-navmount', 'proj-tow', 'proj-grease', 'proj-mvcable', 'proj-beltwinch', 'proj-gripperpressure', 'proj-tensegrity-design'];
+
+  function showExpPage(slug) {
+    if (!expSlugs.includes(slug)) return false;
+    mainContent.hidden = true;
+    expDetailContainer.hidden = false;
+    expDetailContainer.querySelectorAll('.exp-detail-page').forEach(p => { p.hidden = (p.id !== slug); });
+    window.scrollTo(0, 0);
+    return true;
+  }
+
+  function showMain() {
+    expDetailContainer.hidden = true;
+    mainContent.hidden = false;
+  }
+
+  function syncFromHash() {
+    const hash = window.location.hash.replace('#', '');
+    if (expSlugs.includes(hash)) {
+      showExpPage(hash);
+    } else if (projectSlugs.includes(hash)) {
+      const target = document.getElementById(hash);
+      const parentPage = target ? target.closest('.exp-detail-page') : null;
+      if (parentPage) {
+        showExpPage(parentPage.id);
+        document.querySelectorAll(`#${parentPage.id} .project-item`).forEach(i => i.classList.remove('open'));
+        target.classList.add('open');
+        setTimeout(() => target.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+      }
+    } else {
+      showMain();
+    }
+  }
+
+  document.querySelectorAll('.exp-head').forEach(btn => {
+    btn.addEventListener('click', () => {
+      window.location.hash = btn.dataset.slug;
+    });
+  });
+
+  expDetailContainer.addEventListener('click', (e) => {
+    if (e.target.closest('[data-back]')) {
+      history.pushState(null, '', window.location.pathname + window.location.search + '#experience');
+      showMain();
+      document.getElementById('experience').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+
+  window.addEventListener('hashchange', syncFromHash);
+  syncFromHash();
+
+</script>
+
+</body>
+</html>
